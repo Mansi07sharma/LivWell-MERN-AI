@@ -2,13 +2,15 @@
 import Navbar from "../Components/Navbar"
 import Footer from "../Components/Footer"
 import HeroSection from "../Components/HeroSection"
+import SearchBarSection from "../Components/RentPage/SearchBarSection"
 function App() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <HeroSection />
-      <Footer />
+      <Footer /> */}
+      <SearchBarSection />
     </>
   )
 }
