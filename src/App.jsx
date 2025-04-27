@@ -8,21 +8,43 @@ import Section4 from '../Components/Section4'
 import Section5 from '../Components/Section5'
 import Section6 from '../Components/Section6'
 import Properties from '../Components/RentPage/Properties'
+import WhishListItems from '../Components/WhishListPage/WhishListItems'
+import { WishlistProvider } from '../Components/WhishListPage/WhishList'
+import { createBrowserRouter } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <>
+          <Navbar />
+          <Section1 />
+          <Properties />
+          <Section3 />
+          <Section4 />
+          <Section5 />
+          <Section6 />
+          <Footer />
+      </>
+    },
+    {
+      path: '/whishlist',
+      element: <>
+        <Navbar />
+          <WhishListItems />
+        <Footer />
+      </>
+    }
+  ])
 
   return (
-    <div>
-       <Navbar/>
-       <Section1/>
-       <Properties/>
-       <Section3/>       
-       <Section4/>       
-       <Section5/>       
-       <Section6/>       
-       <Footer/>
-    </div>
-   
+    <>
+    <WishlistProvider>
+      <RouterProvider router={router} />
+      </WishlistProvider>
+    </>
   )
 }
 

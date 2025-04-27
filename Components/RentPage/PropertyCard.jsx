@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useWishlist } from '../WhishListPage/WhishList'; 
 
 function PropertyCard(props) {
+  const { whishlistedItems, setWhishlistedItems } = useWishlist();
+
+  const addToWhishList = () => {
+    const newItem = {
+      _id: props._id,
+      image: props.image,
+      price: props.price,
+      rating: props.rating,
+      title: props.title,
+      location: props.location,
+      beds: props.beds,
+      baths: props.baths,
+      sqft: props.sqft,
+    };
+
+    setWhishlistedItems(prev => [...prev, newItem]); // Update context state
+  };
+  
   return (
     <div>
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
@@ -9,7 +28,7 @@ function PropertyCard(props) {
             src={props.image}
             alt="Luxury Apartment"
             className="w-full h-72 object-cover "/>
-          <button className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-primary transition">
+          <button className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-red-500 transition" onClick={()=>addToWhishList()}>
             <i className="ri-heart-line"></i>
           </button>
           <div className="absolute bottom-0 left-0 bg-primary text-white text-xs font-medium px-3 py-1 rounded-tr-lg">
@@ -52,10 +71,10 @@ function PropertyCard(props) {
         </div>
 
         <div className="flex px-4 pb-4 gap-2">
-          <button className="w-full bg-primary/10 text-primary px-4 py-2 !rounded-button whitespace-nowrap hover:bg-primary/20 transition">
+          <button className="w-full bg-gray-200 text-primary px-4 py-2 rounded whitespace-nowrap hover:bg-gray-300 transition">
             View Details
           </button>
-          <button className="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition">
+          <button className="bg-purple-500 text-white px-4 py-2 rounded whitespace-nowrap hover:bg-purple-600 transition">
             <i className="ri-chat-1-line"></i>
           </button>
         </div>

@@ -1,20 +1,21 @@
 import React from 'react'
 import './Navbar.css'
+import {NavLink} from 'react-router-dom'
 
 function Navbar() {
     return (
         <div>
             <header className="sticky top-0 z-50 bg-white shadow-sm">
                 <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-                    <a href="#" className="flex items-center">
+                    <NavLink to="/" className="flex items-center">
                         <span className="text-2xl font-['Pacifico'] text-purple-700">LivWell</span>
-                    </a>
+                    </NavLink>
 
                     <nav className="hidden md:flex items-center space-x-8">
-                        <a href="#" className="text-gray-900 font-medium hover:text-primary transition">Home</a>
-                        <a href="#" className="text-gray-600 hover:text-primary transition">Rent</a>
-                        <a href="#" className="text-gray-600 hover:text-primary transition">Post Property</a>
-                        <a href="#" className="text-gray-600 hover:text-primary transition">Wishlist</a>
+                        <NavLink to="/" className="text-gray-900 font-medium hover:text-primary transition">Home</NavLink>
+                        <NavLink to="/rent" className="text-gray-600 hover:text-primary transition">Rent</NavLink>
+                        <NavLink to="/post-property" className="text-gray-600 hover:text-primary transition">Post Property</NavLink>
+                        <NavLink to="/whishlist" className="text-gray-600 hover:text-primary transition">Wishlist</NavLink>
                     </nav>
 
                     <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-1/3">

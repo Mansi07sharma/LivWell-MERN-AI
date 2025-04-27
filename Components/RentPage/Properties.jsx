@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import PropertyCard from './propertyCard'; 
+import PropertyCard from './propertyCard';
+
 
 function Properties() {
   const [properties, setProperties] = useState([]);
@@ -20,23 +21,23 @@ function Properties() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
         {console.log(properties)}
-      {properties.map((property) => (
-        <PropertyCard
-          key={property._id}
-          image={property.image}
-          price={property.price}
-          rating={property.rating}
-          title={property.title}
-          location={property.location}
-          beds={property.beds}
-          baths={property.baths}
-          sqft={property.sqft}
-        />
-      ))}
-    </div>
+        {properties.map((property) => (
+          <PropertyCard
+            key={property._id}
+            image={property.image}
+            price={property.price}
+            rating={property.rating}
+            title={property.title}
+            location={property.location}
+            beds={property.beds}
+            baths={property.baths}
+            sqft={property.sqft}
+          />
+        ))}
+      </div>
   );
 }
 
-export default Properties;
+export default Properties; 
