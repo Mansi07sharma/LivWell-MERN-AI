@@ -8,8 +8,7 @@ function PropertyCard(props) {
           <img
             src={props.image}
             alt="Luxury Apartment"
-            className="w-full h-48 object-cover object-top"
-          />
+            className="w-full h-72 object-cover "/>
           <button className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-primary transition">
             <i className="ri-heart-line"></i>
           </button>
@@ -21,7 +20,7 @@ function PropertyCard(props) {
         <div className="p-4">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg font-semibold text-gray-900">
-              ${props.price}/month
+              {props.price}
             </h3>
             <div className="flex items-center text-yellow-500">
               <i className="ri-star-fill text-xs"></i>
