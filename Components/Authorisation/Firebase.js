@@ -6,12 +6,7 @@ import {getAuth} from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAiN7SFhBXfbqQ4Iu5GDhEM2AJT0KuDiJM",
-  authDomain: "livwell-a24c0.firebaseapp.com",
-  projectId: "livwell-a24c0",
-  storageBucket: "livwell-a24c0.firebasestorage.app",
-  messagingSenderId: "780457783977",
-  appId: "1:780457783977:web:b134836d1f918611f66fb8"
+  not allowed to see
 };
 
 // Initialize Firebase
