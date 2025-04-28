@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
-import Section1 from '../Components/Section1'
-import Section3 from '../Components/Section3'
-import Section4 from '../Components/Section4'
-import Section5 from '../Components/Section5'
-import Section6 from '../Components/Section6'
+import Section1 from '../Components/HomePage/Section1'
+import Section3 from '../Components/HomePage/Section3'
+import Section4 from '../Components/HomePage/Section4'
+import Section5 from '../Components/HomePage/Section5'
+import Section6 from '../Components/HomePage/Section6'
 import Properties from '../Components/RentPage/Properties'
 import WhishListItems from '../Components/WhishListPage/WhishListItems'
 import { WishlistProvider } from '../Components/WhishListPage/WhishList'
@@ -15,6 +14,10 @@ import { RouterProvider } from 'react-router-dom'
 
 import PostProperty from '../Components/PostPropertyPage/PostProperty'
 import RentS1 from '../Components/RentPage/RentS1'
+
+import Login from '../Components/Authorisation/login'
+import Signup from '../Components/Authorisation/SignUp'
+
 
 function App() {
 
@@ -51,6 +54,14 @@ function App() {
           <PostProperty />
         <Footer />
       </>
+    },
+    {
+      path:'/login',
+      element:<Login/>
+    },
+    {
+      path:'/signup',
+      element:<Signup/>
     }
   ])
 

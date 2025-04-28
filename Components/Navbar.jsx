@@ -1,8 +1,19 @@
 import React from 'react'
 import './Navbar.css'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { useAuth } from './Authorisation/AuthContext';
 
 function Navbar() {
+    const { currentUser , logout } = useAuth();
+    const handleLogout=async()=>{
+        try {
+            await logout()
+            console.log('Logout successful')
+        } catch (error) {
+            console.error('Error logging out:', error)
+        }
+    }
+
     return (
         <div>
             <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -35,15 +46,32 @@ function Navbar() {
                     </div>
 
                     <div className="flex items-center space-x-4">
-                        <button className="hidden md:block text-gray-700 hover:text-primary transition">
-                            Login
-                        </button>
-                        <button className="hidden md:block bg-purple-600 text-white px-4 py-2 rounded-lg whitespace-nowrap hover:bg-primary/90 transition">
-                            Sign Up
-                        </button>
-                        <button className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full md:hidden">
-                            <i className="ri-menu-line text-gray-700"></i>
-                        </button>
+                        {!currentUser ? (
+                            <>
+                                <NavLink to={'/login'} className="hidden md:block text-gray-700 hover:text-black transition">
+                                    Login
+                                </NavLink>
+                                <NavLink to={'/signup'} className="hidden md:block bg-purple-600 text-white px-4 py-2 rounded-lg whitespace-nowrap hover:bg-primary/90 transition">
+                                    Sign Up
+                                </NavLink>
+                                <button className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full md:hidden">
+                                    <i className="ri-menu-line text-gray-700"></i>
+                                </button>
+                            </>
+                        ) : (
+                            <div className="flex items-center gap-4">
+                                <img src="https://t4.ftcdn.net/jpg/08/23/95/89/360_F_823958944_1c9covIC7Tl7eyJtWoTiXc0L4vP6f43q.jpg"alt="User Logo"className="w-10 h-10 rounded-full object-cover"/>
+                                <span className="text-gray-700 font-semibold">
+                                    {currentUser.displayName}
+                                </span>
+                                <button onClick={()=>handleLogout()}
+                                    className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        )}
+
                     </div>
                 </div>
             </header>

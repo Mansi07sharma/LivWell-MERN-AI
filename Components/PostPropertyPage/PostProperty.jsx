@@ -4,8 +4,11 @@ import { useForm } from 'react-hook-form';
 function PostProperty() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async(data) => {
+    let r = await fetch("http://127.0.0.1:3000/properties", {method: "POST",  headers: {
+      "Content-Type": "application/json", 
+    }, body: JSON.stringify(data)})
+    let res = await r.text()
   };
 
   return (
