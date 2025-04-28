@@ -22,7 +22,7 @@ const Section1 = () => {
             </p>
 
             {/* Search Section */}
-            <div className="bg-white rounded-xl shadow-xl p-6">
+            {/* <div className="bg-white rounded-xl shadow-xl p-6">
               <div className="flex flex-col space-y-4">
                 <div className="flex items-center bg-gray-100 rounded px-4 py-3">
                   <div className="w-5 h-5 flex items-center justify-center text-gray-500">
@@ -76,7 +76,7 @@ const Section1 = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

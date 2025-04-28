@@ -13,6 +13,9 @@ import { WishlistProvider } from '../Components/WhishListPage/WhishList'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 
+import PostProperty from '../Components/PostPropertyPage/PostProperty'
+import RentS1 from '../Components/RentPage/RentS1'
+
 function App() {
 
   const router = createBrowserRouter([
@@ -30,10 +33,22 @@ function App() {
       </>
     },
     {
+      path: '/rent/:id',
+      element:<><Navbar/><RentS1/></>
+    },
+    {
       path: '/whishlist',
       element: <>
         <Navbar />
           <WhishListItems />
+        <Footer />
+      </>
+    },
+    {
+      path: '/post-property',
+      element: <>
+        <Navbar />
+          <PostProperty />
         <Footer />
       </>
     }

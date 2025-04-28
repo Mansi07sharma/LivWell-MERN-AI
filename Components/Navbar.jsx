@@ -13,7 +13,7 @@ function Navbar() {
 
                     <nav className="hidden md:flex items-center space-x-8">
                         <NavLink to="/" className="text-gray-900 font-medium hover:text-primary transition">Home</NavLink>
-                        <NavLink to="/rent" className="text-gray-600 hover:text-primary transition">Rent</NavLink>
+                        <NavLink to="/rent/:id" className="text-gray-600 hover:text-primary transition">Rent</NavLink>
                         <NavLink to="/post-property" className="text-gray-600 hover:text-primary transition">Post Property</NavLink>
                         <NavLink to="/whishlist" className="text-gray-600 hover:text-primary transition">Wishlist</NavLink>
                     </nav>

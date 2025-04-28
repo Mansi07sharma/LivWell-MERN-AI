@@ -26,6 +26,7 @@ function Properties() {
         {properties.map((property) => (
           <PropertyCard
             key={property._id}
+            _id={property._id}
             image={property.image}
             price={property.price}
             rating={property.rating}
@@ -33,7 +34,7 @@ function Properties() {
             location={property.location}
             beds={property.beds}
             baths={property.baths}
-            sqft={property.sqft}
+            sqft={property.area}
           />
         ))}
       </div>

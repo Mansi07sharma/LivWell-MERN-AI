@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useWishlist } from '../WhishListPage/WhishList'; 
+import { useWishlist } from '../WhishListPage/WhishList';
+import { useNavigate } from 'react-router-dom';
 
 function PropertyCard(props) {
   const { whishlistedItems, setWhishlistedItems } = useWishlist();
+
+  const navigate=useNavigate()
+
+  const handleView=()=>{
+    console.log(props._id,'i am id')
+    navigate(`/rent/${props._id}`)
+  }
 
   const addToWhishList = () => {
     const newItem = {
@@ -19,7 +27,7 @@ function PropertyCard(props) {
 
     setWhishlistedItems(prev => [...prev, newItem]); // Update context state
   };
-  
+
   return (
     <div>
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
@@ -27,8 +35,8 @@ function PropertyCard(props) {
           <img
             src={props.image}
             alt="Luxury Apartment"
-            className="w-full h-72 object-cover "/>
-          <button className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-red-500 transition" onClick={()=>addToWhishList()}>
+            className="w-full h-72 object-cover " />
+          <button className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-red-500 transition" onClick={() => addToWhishList()}>
             <i className="ri-heart-line"></i>
           </button>
           <div className="absolute bottom-0 left-0 bg-primary text-white text-xs font-medium px-3 py-1 rounded-tr-lg">
@@ -71,7 +79,7 @@ function PropertyCard(props) {
         </div>
 
         <div className="flex px-4 pb-4 gap-2">
-          <button className="w-full bg-gray-200 text-primary px-4 py-2 rounded whitespace-nowrap hover:bg-gray-300 transition">
+          <button onClick={()=>handleView()} className="w-full bg-gray-200 text-black px-4 py-2 rounded whitespace-nowrap hover:bg-gray-300 transition">
             View Details
           </button>
           <button className="bg-purple-500 text-white px-4 py-2 rounded whitespace-nowrap hover:bg-purple-600 transition">
