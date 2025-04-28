@@ -10,7 +10,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // const uri='mongodb://localhost:27017'
-const uri = "mongodb+srv://MansiSharma:Mansi13114%40@cluster0.ld4md5x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://MansiSharma:Password not for you@cluster0.ld4md5x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 
 const dbname='LivWell';
