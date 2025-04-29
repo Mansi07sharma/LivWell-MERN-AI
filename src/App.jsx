@@ -27,6 +27,8 @@ import SearchByPhone from '../Components/Search/SearchByPhone'
 import PaymentPage from '../Components/UserRentedProperties/PaymentPage'
 import UserRentedProperties from '../Components/UserRentedProperties/UserRentedProperties'
 
+import PostedProperties from '../Components/PostPropertyPage/PostedProperties'
+
 
 function App() {
 
@@ -94,8 +96,10 @@ function App() {
     },{
       path:"/my-rented-properties",
       element:<><Navbar/><UserRentedProperties /><Footer/></>
+    },{
+      path:'/my-posted-properties',
+      element:<><Navbar/><PostedProperties/><Footer/></>
     }
-    
   ])
 
   return (

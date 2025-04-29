@@ -26,6 +26,24 @@ const PaymentPage = () => {
         };
     };
 
+    const deleteProperty = async (propertyId) => {
+        try {
+            const response = await fetch(`http://127.0.0.1:3000/delete/properties/${propertyId}`, {
+                method: 'DELETE',
+              });
+              
+      
+          if (response.ok) {
+            console.log('Property deleted successfully');
+            // Optionally update UI or refetch
+          } else {
+            console.error('Failed to delete property');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };      
+
     const handlePaymentSuccess = async () => {
         if (!currentUser) {
             navigate('/login');
@@ -41,6 +59,9 @@ const PaymentPage = () => {
             const rentedRef = collection(db, 'users', currentUser.uid, 'rentedProperties');
             setLoading(true)
             await addDoc(rentedRef, sanitizedProperty);
+
+            await deleteProperty(state.property._id);
+
             setLoading(false)
 
             navigate('/my-rented-properties');
@@ -48,6 +69,8 @@ const PaymentPage = () => {
             console.error('Error saving rented property:', error);
             alert('Payment succeeded, but saving property failed.');
         }
+
+        
     };
 
     const property = state?.property;

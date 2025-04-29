@@ -34,8 +34,30 @@ function Navbar() {
                         <NavLink to="/rent/:id" className="text-gray-600 hover:text-primary transition">Rent</NavLink>
                         <NavLink to="/post-property" className="text-gray-600 hover:text-primary transition">Post Property</NavLink>
                         <NavLink to="/whishlist" className="text-gray-600 hover:text-primary transition">Wishlist</NavLink>
-                        
-                        {(currentUser && <NavLink to="/my-rented-properties" className="text-gray-600 hover:text-primary transition">My Purchases</NavLink>)}</nav>
+                        {currentUser && (
+                            <div className="relative group">
+                                <button className="text-gray-600 hover:text-primary transition focus:outline-none">
+                                    My Account
+                                </button>
+                                <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all bg-white shadow-md rounded-md mt-2 min-w-[160px] z-50">
+                                    <NavLink
+                                        to="/my-rented-properties"
+                                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    >
+                                        My Purchases
+                                    </NavLink>
+                                    <NavLink
+                                        to="/my-posted-properties"
+                                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    >
+                                        My Property
+                                    </NavLink>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* {(currentUser && <NavLink to="/my-rented-properties" className="text-gray-600 hover:text-primary transition">My Purchases</NavLink>)} */}
+                    </nav>
                     <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-1/3">
                         <div className="w-5 h-5 flex items-center justify-center text-gray-500">
                             <i className="ri-search-line"></i>
