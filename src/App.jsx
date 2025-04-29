@@ -24,6 +24,9 @@ import MapCard from '../Components/Map/MapCard'
 import Search from '../Components/Search/Search'
 import SearchByPhone from '../Components/Search/SearchByPhone'
 
+import PaymentPage from '../Components/UserRentedProperties/PaymentPage'
+import UserRentedProperties from '../Components/UserRentedProperties/UserRentedProperties'
+
 
 function App() {
 
@@ -80,9 +83,17 @@ function App() {
     {
       path:'/search',
       element:<><Navbar/><Search/><Footer/></>
-    },{
+    },
+    {
       path:'/search/user',
       element:<><Navbar/><SearchByPhone/><Footer/></>
+    },
+    {
+      path:"/payment" ,
+      element:<PaymentPage />
+    },{
+      path:"/my-rented-properties",
+      element:<><Navbar/><UserRentedProperties /><Footer/></>
     }
     
   ])

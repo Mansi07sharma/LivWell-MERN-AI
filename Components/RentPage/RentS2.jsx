@@ -68,8 +68,7 @@ const RestS2 = (props) => {
                     </div>
 
                     {/* Right Section (Map) */}
-                    {/* <MapCard location="New York, USA" /> */}
-                    {/* <LiveLocationMap/> */}
+                    <MapCard location={{ lat: props.lat, lng: props.lon }}/>
                     
                 </div>
             </section>

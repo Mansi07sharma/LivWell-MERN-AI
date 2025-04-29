@@ -34,8 +34,8 @@ function Navbar() {
                         <NavLink to="/rent/:id" className="text-gray-600 hover:text-primary transition">Rent</NavLink>
                         <NavLink to="/post-property" className="text-gray-600 hover:text-primary transition">Post Property</NavLink>
                         <NavLink to="/whishlist" className="text-gray-600 hover:text-primary transition">Wishlist</NavLink>
-                    </nav>
-
+                        
+                        {(currentUser && <NavLink to="/my-rented-properties" className="text-gray-600 hover:text-primary transition">My Purchases</NavLink>)}</nav>
                     <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-1/3">
                         <div className="w-5 h-5 flex items-center justify-center text-gray-500">
                             <i className="ri-search-line"></i>

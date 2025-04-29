@@ -35,11 +35,11 @@ const MapCard = ({ location }) => {
             <MarkerF position={location} />
           </GoogleMap>
 
-          <div className="absolute bottom-2 right-2">
+          {/* <div className="absolute bottom-2 right-2">
             <button className="bg-white p-2 rounded shadow">
               <i className="fas fa-expand-alt text-indigo-700"></i>
             </button>
-          </div>
+          </div> */}
         </div>
 
         <p className="text-gray-700 mb-3">

@@ -21,7 +21,15 @@ const RentS1 = () => {
         price: '',
         beds: '',
         baths: '',
-        title: ''
+        title: '',
+        name:'',
+        phoneNo:'',
+        longitude:0,
+        latitude:0,
+        image:'',
+        _id:'',
+        rating:0,
+        featured:false,
       });
       
     useEffect(() => {
@@ -89,10 +97,10 @@ const RentS1 = () => {
                         </div>
                     </div>
                 </section>
-                <RentS2 area={rentDetails.area } location={rentDetails.location} price={rentDetails.price} beds={rentDetails.beds} baths={rentDetails.baths} title={rentDetails.title}/>
+                <RentS2 area={rentDetails.area } location={rentDetails.location} price={rentDetails.price} beds={rentDetails.beds} baths={rentDetails.baths} title={rentDetails.title} lat={rentDetails.latitude} lon={rentDetails.longitude}/>
                 <RentS3 Overview={rentDetails.description.Overview} propSpeci={rentDetails.description['Property Specifications']} buildingAmenities={rentDetails.description['Building Amenities']} neighborhood={rentDetails.description.Neighborhood} petPolicy={rentDetails.description['Pet Policy']} leaseTerms={rentDetails.description['Lease Terms']}/>
                 <RentS4 />
-                <RentS5 />
+                <RentS5 data={{rentDetails}}/>
             </main>
         </div>
     );

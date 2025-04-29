@@ -15,18 +15,19 @@ function WhishListItems() {
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
-                {whishlistedItems.map((item,idx) => (
-                    console.log(item),
+                {whishlistedItems.map((property, idx) => (
+                    console.log(property),
                     <PropertyCard
-                        key={idx}
-                        image={item.image}
-                        price={item.price}
-                        rating={item.rating}
-                        title={item.title}
-                        location={item.location}
-                        beds={item.beds}
-                        baths={item.baths}
-                        sqft={item.sqft}
+                        key={property._id}
+                        _id={property._id}
+                        image={property.image}
+                        price={property.price}
+                        rating={property.rating}
+                        title={property.title}
+                        location={property.location}
+                        beds={property.beds}
+                        baths={property.baths}
+                        sqft={property.area}
                     />
                 ))}
             </div>
