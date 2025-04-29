@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from './Firebase';
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Signup() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -88,6 +89,14 @@ function Signup() {
             >
               Continue with Google
             </button>
+          </div>
+          <div className="text-center mt-4">
+            <p className="text-gray-600 text-sm">
+              Already have an account?{' '}
+              <NavLink to="/login" className="text-indigo-600 font-semibold hover:underline">
+                Login
+              </NavLink>
+            </p>
           </div>
         </form>
       )}

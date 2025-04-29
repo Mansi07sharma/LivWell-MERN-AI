@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { auth } from './Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [loading, setLoading] = useState(false);
@@ -58,6 +60,14 @@ function Login() {
               className="mt-3 w-full bg-red-500 text-white py-3 rounded-full hover:bg-red-600 transition duration-300"
             >Continue with Google
             </button>
+          </div>
+          <div className="text-center">
+            <p className="text-gray-600 text-sm">
+              Don’t have an account?{' '}
+              <NavLink to="/signup" className="text-indigo-600 font-semibold hover:underline">
+                Sign Up
+              </NavLink>
+            </p>
           </div>
         </form>
       )}

@@ -30,10 +30,26 @@ function Navbar() {
                     </NavLink>
 
                     <nav className="hidden md:flex items-center space-x-8">
-                        <NavLink to="/" className="text-gray-900 font-medium hover:text-primary transition">Home</NavLink>
-                        <NavLink to="/rent/:id" className="text-gray-600 hover:text-primary transition">Rent</NavLink>
-                        <NavLink to="/post-property" className="text-gray-600 hover:text-primary transition">Post Property</NavLink>
-                        <NavLink to="/whishlist" className="text-gray-600 hover:text-primary transition">Wishlist</NavLink>
+                        <NavLink to="/" className={({ isActive }) =>
+                            isActive
+                                ? "text-black font-semibold transition"
+                                : "text-gray-600 hover:text-primary transition"
+                        }>Home</NavLink>
+                        <NavLink to="/rent/:id" className={({ isActive }) =>
+                            isActive
+                                ? "text-black font-semibold transition"
+                                : "text-gray-600 hover:text-primary transition"
+                        }>Rent</NavLink>
+                        <NavLink to="/post-property" className={({ isActive }) =>
+                            isActive
+                                ? "text-black font-semibold transition"
+                                : "text-gray-600 hover:text-primary transition"
+                        }>Post Property</NavLink>
+                        <NavLink to="/whishlist" className={({ isActive }) =>
+                            isActive
+                                ? "text-black font-semibold transition"
+                                : "text-gray-600 hover:text-primary transition"
+                        }>Wishlist</NavLink>
                         {currentUser && (
                             <div className="relative group">
                                 <button className="text-gray-600 hover:text-primary transition focus:outline-none">
@@ -42,13 +58,21 @@ function Navbar() {
                                 <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all bg-white shadow-md rounded-md mt-2 min-w-[160px] z-50">
                                     <NavLink
                                         to="/my-rented-properties"
-                                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                        className={({ isActive }) =>
+                                            isActive
+                                              ? "block px-4 py-2 text-black font-semibold bg-gray-100"
+                                              : "block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                          }
                                     >
                                         My Purchases
                                     </NavLink>
                                     <NavLink
                                         to="/my-posted-properties"
-                                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                        className={({ isActive }) =>
+                                            isActive
+                                              ? "block px-4 py-2 text-black font-semibold bg-gray-100"
+                                              : "block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                          }
                                     >
                                         My Property
                                     </NavLink>
