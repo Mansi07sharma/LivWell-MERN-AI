@@ -1,11 +1,17 @@
 import React from 'react'
+import { useState } from 'react'
 import './Navbar.css'
 import { NavLink } from 'react-router-dom'
 import { useAuth } from './Authorisation/AuthContext';
 
+import { useNavigate } from 'react-router-dom';
+
 function Navbar() {
-    const { currentUser , logout } = useAuth();
-    const handleLogout=async()=>{
+    const { currentUser, logout } = useAuth();
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
         try {
             await logout()
             console.log('Logout successful')
@@ -13,6 +19,7 @@ function Navbar() {
             console.error('Error logging out:', error)
         }
     }
+
 
     return (
         <div>
@@ -33,11 +40,25 @@ function Navbar() {
                         <div className="w-5 h-5 flex items-center justify-center text-gray-500">
                             <i className="ri-search-line"></i>
                         </div>
-                        <input
-                            type="text"
-                            placeholder="Search for properties..."
-                            className="bg-transparent border-none outline-none px-3 w-full text-sm"
-                        />
+                        <div className='flex items-center justify-between w-full pr-2'>
+                            <input
+                                type="text"
+                                placeholder="Search for properties..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="bg-transparent border-none outline-none px-3 w-full text-sm"
+                            />
+                            <button
+                                onClick={() => {
+                                    if (searchQuery.trim()) {
+                                        navigate(`/search?query=${searchQuery}`);
+                                    }
+                                }}
+                                className="w-9 h-8 flex items-center justify-center bg-purple-700 rounded-full text-white hover:bg-purple-800 transition"
+                            >
+                                <i className="ri-search-line"></i>
+                            </button>
+                        </div>
                         <button
                             className="w-9 h-8 flex items-center justify-center bg-purple-700 rounded-full text-white livi-pulse"
                         >
@@ -60,11 +81,11 @@ function Navbar() {
                             </>
                         ) : (
                             <div className="flex items-center gap-4">
-                                <img src="https://t4.ftcdn.net/jpg/08/23/95/89/360_F_823958944_1c9covIC7Tl7eyJtWoTiXc0L4vP6f43q.jpg"alt="User Logo"className="w-10 h-10 rounded-full object-cover"/>
+                                <img src="https://t4.ftcdn.net/jpg/08/23/95/89/360_F_823958944_1c9covIC7Tl7eyJtWoTiXc0L4vP6f43q.jpg" alt="User Logo" className="w-10 h-10 rounded-full object-cover" />
                                 <span className="text-gray-700 font-semibold">
                                     {currentUser.displayName}
                                 </span>
-                                <button onClick={()=>handleLogout()}
+                                <button onClick={() => handleLogout()}
                                     className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
                                 >
                                     Logout

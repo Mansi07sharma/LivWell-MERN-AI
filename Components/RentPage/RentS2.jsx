@@ -1,4 +1,7 @@
 import React from 'react';
+import MapCard from '../Map/MapCard';
+import LiveLocationMap from '../Map/Map';
+
 const RestS2 = (props) => {
     return (
         <div>
@@ -65,29 +68,9 @@ const RestS2 = (props) => {
                     </div>
 
                     {/* Right Section (Map) */}
-                    <div className="w-full lg:w-4/12">
-                        <div className="bg-gray-100 p-4 rounded-lg">
-                            <div className="relative h-48 mb-4">
-                                <img
-                                    src="/api/placeholder/400/320"
-                                    alt="Map"
-                                    className="w-full h-full object-cover rounded"
-                                />
-                                <div className="absolute bottom-2 right-2">
-                                    <button className="bg-white p-2 rounded shadow">
-                                        <i className="fas fa-expand-alt text-indigo-700"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <p className="text-gray-700 mb-3">
-                                Walk Score: 92/100 - Walker's Paradise
-                            </p>
-                            <p className="text-gray-700">
-                                Transit Score: 98/100 - World-class public transportation
-                            </p>
-                        </div>
-                    </div>
+                    {/* <MapCard location="New York, USA" /> */}
+                    {/* <LiveLocationMap/> */}
+                    
                 </div>
             </section>
         </div>

@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function SearchBarSection() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
   return (
     <section className="bg-white border-b border-gray-200 sticky top-16 z-40">
       <div className="container mx-auto px-4 py-4">
@@ -11,44 +16,26 @@ function SearchBarSection() {
               <i className="ri-search-line"></i>
             </div>
             <input
-              type="text"
-              placeholder="Search by location, property name..."
+              type="text" onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search User by Phone Number..."
               className="bg-transparent border-none outline-none px-3 w-full text-sm"
             />
+            <button
+              onClick={() => {
+                if (searchQuery.trim()) {
+                  navigate(`/search/user?query=${searchQuery}`);
+                }
+              }}
+              className="w-9 h-8 flex items-center justify-center bg-purple-700 rounded-full text-white hover:bg-purple-800 transition"
+            >
+              <i className="ri-search-line"></i>
+            </button>
           </div>
 
-          {/* Filter Buttons */}
-          <div className="flex items-center space-x-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 whitespace-nowrap">
-            <button className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 hover:border-primary hover:text-primary transition flex items-center">
-              <i className="ri-money-dollar-circle-line mr-1"></i>
-              Price
-              <i className="ri-arrow-down-s-line ml-1"></i>
-            </button>
-            <button className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 hover:border-primary hover:text-primary transition flex items-center">
-              <i className="ri-home-line mr-1"></i>
-              Property Type
-              <i className="ri-arrow-down-s-line ml-1"></i>
-            </button>
-            <button className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 hover:border-primary hover:text-primary transition flex items-center">
-              <i className="ri-hotel-bed-line mr-1"></i>
-              Beds & Baths
-              <i className="ri-arrow-down-s-line ml-1"></i>
-            </button>
-            <button className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 hover:border-primary hover:text-primary transition flex items-center">
-              <i className="ri-equalizer-line mr-1"></i>
-              More Filters
-            </button>
-          </div>
 
           {/* Map Toggle */}
           <div className="flex items-center border border-primary rounded-full p-1 ml-auto">
-            <button
-              id="grid-view-btn"
-              className="px-4 py-1 rounded-full text-sm whitespace-nowrap map-toggle-active"
-            >
-              <i className="ri-layout-grid-line mr-1"></i>
-              Grid
-            </button>
+
             <button
               id="map-view-btn"
               className="px-4 py-1 rounded-full text-sm whitespace-nowrap map-toggle-inactive"

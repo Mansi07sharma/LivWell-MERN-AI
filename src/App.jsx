@@ -18,6 +18,12 @@ import RentS1 from '../Components/RentPage/RentS1'
 import Login from '../Components/Authorisation/login'
 import Signup from '../Components/Authorisation/SignUp'
 
+import LiveLocationMap from '../Components/Map/Map'
+import MapCard from '../Components/Map/MapCard'
+
+import Search from '../Components/Search/Search'
+import SearchByPhone from '../Components/Search/SearchByPhone'
+
 
 function App() {
 
@@ -62,7 +68,23 @@ function App() {
     {
       path:'/signup',
       element:<Signup/>
+    },
+    {
+      path:'/map',
+      element:<LiveLocationMap/>
+    },
+    {
+      path:'/card',
+      element:<MapCard location={{ lat: 25.7749, lng: -80.1345 }} /> 
+    },
+    {
+      path:'/search',
+      element:<><Navbar/><Search/><Footer/></>
+    },{
+      path:'/search/user',
+      element:<><Navbar/><SearchByPhone/><Footer/></>
     }
+    
   ])
 
   return (

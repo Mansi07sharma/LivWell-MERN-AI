@@ -37,6 +37,46 @@ app.get('/rent/:id',async(req,res)=>{
     res.json(prop)
 })
 
+app.get('/search/:username', async (req, res) => {
+    const username = req.params.username;
+    console.log(username);
+
+    try {
+        const prop = await collection.find({ name: username }).toArray();
+        
+        if (prop.length === 0) {
+            return res.status(404).json({ message: "No property found for this user." });
+        }
+
+        console.log(prop);
+        res.json(prop); // Sends an array of properties
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+app.get('/search/user/:phone_no', async (req, res) => {
+    console.log("here")
+    const phone_no = req.params.phone_no;
+    console.log(phone_no);
+
+    try {
+        const prop = await collection.find({ phoneNo: phone_no }).toArray();
+        
+        if (prop.length === 0) {
+            return res.status(404).json({ message: "No property found for this user." });
+        }
+
+        console.log(prop);
+        res.json(prop); // Sends an array of properties
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+
 app.post('/properties', async (req, res) => {
     const property = req.body;
     console.log('Received property data:', property);
