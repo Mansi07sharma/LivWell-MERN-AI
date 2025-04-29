@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Chatbot from './Chatbot/Chatbot';
 
 function Footer() {
+    const [showChatbot, setShowChatbot] = useState(false);
+
+    const toggleChatbot = () => {
+        setShowChatbot(!showChatbot);
+    };
     return (
         <div>
             <footer className="bg-gray-900 text-white py-12">
@@ -118,11 +124,21 @@ function Footer() {
                 </div>
             </footer>
             {/* Voice Assistant Button */}
+            {showChatbot && (
+                <div className="fixed bottom-24 right-6 z-50">
+                    <Chatbot />
+                </div>
+            )}
             <div className="fixed bottom-6 right-6 z-50">
-                <button className="w-14 h-14 bg-violet-700 rounded-full shadow-lg flex items-center justify-center text-white livi-pulse">
-                    <i className="ri-mic-line text-xl"></i>
+                <button
+                    onClick={toggleChatbot}
+                    className="w-14 h-14 bg-violet-700 rounded-full shadow-lg flex items-center justify-center text-white livi-pulse"
+                >
+                    <i className="ri-robot-2-line text-xl"></i>
                 </button>
             </div>
+
+            {/* {chatbot&&<Chatbot/>} */}
         </div >
     );
 }

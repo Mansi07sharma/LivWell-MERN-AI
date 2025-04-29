@@ -29,6 +29,8 @@ import UserRentedProperties from '../Components/UserRentedProperties/UserRentedP
 
 import PostedProperties from '../Components/PostPropertyPage/PostedProperties'
 
+import Chatbot from '../Components/Chatbot/Chatbot'
+
 
 function App() {
 
@@ -99,6 +101,9 @@ function App() {
     },{
       path:'/my-posted-properties',
       element:<><Navbar/><PostedProperties/><Footer/></>
+    },{
+      path:'/chatbot',
+      element:<Chatbot/>
     }
   ])
 
