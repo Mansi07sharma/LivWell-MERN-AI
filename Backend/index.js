@@ -140,6 +140,57 @@ app.delete('/delete/properties/:id', async (req, res) => {
     }
   });
 
+  import { wordsToNumbers } from 'words-to-numbers';
+
+app.post('/api/voice-search', async (req, res) => {
+    let { query } = req.body;
+    console.log('Original Voice query:', query);
+
+    const normalizedQuery = query.toLowerCase();
+
+    let beds = null;
+    let baths = null;
+    let name = null;
+
+    const bedMatch = normalizedQuery.match(/(\w+)\s*bed(room)?s?/);
+    if (bedMatch) {
+        beds = wordsToNumbers(bedMatch[1]);
+    }
+
+    const bathMatch = normalizedQuery.match(/(\w+)\s*bath(room)?s?/);
+    if (bathMatch) {
+        baths = wordsToNumbers(bathMatch[1]);
+    }
+
+    const nameMatch = normalizedQuery.match(/by\s+([a-zA-Z\s]+)/);
+    if (nameMatch) {
+        name = nameMatch[1].trim();
+    }
+
+    const queryObj = {};
+    if (beds !== null) queryObj.beds = beds;
+    if (baths !== null) queryObj.baths = baths;
+    if (name !== null) queryObj.name = { $regex: name, $options: 'i' };
+
+    console.log('MongoDB Query:', queryObj);
+
+    try {
+        const results = await collection.find(queryObj).toArray();
+        console.log('Search Results:', results);
+        if (results.length === 0) {
+            return res.status(404).json({ message: 'No matching properties found.' });
+        }
+        res.json(results);
+    } catch (error) {
+        console.error('Error during voice search:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+
+
+  
+
 
 
 app.listen(port, () => {

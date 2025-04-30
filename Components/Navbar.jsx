@@ -19,6 +19,7 @@ function Navbar() {
             console.error('Error logging out:', error)
         }
     }
+    
 
 
     return (
@@ -105,7 +106,7 @@ function Navbar() {
                                 <i className="ri-search-line"></i>
                             </button>
                         </div>
-                        <button
+                        <button  onClick={()=>navigate('/livi')}
                             className="w-9 h-8 flex items-center justify-center bg-purple-700 rounded-full text-white livi-pulse"
                         >
                             <i className="ri-mic-line"></i>

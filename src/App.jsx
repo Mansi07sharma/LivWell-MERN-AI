@@ -30,6 +30,7 @@ import UserRentedProperties from '../Components/UserRentedProperties/UserRentedP
 import PostedProperties from '../Components/PostPropertyPage/PostedProperties'
 
 import Chatbot from '../Components/Chatbot/Chatbot'
+import Liivi from '../Components/Livi/Liivi'
 
 
 function App() {
@@ -104,6 +105,9 @@ function App() {
     },{
       path:'/chatbot',
       element:<Chatbot/>
+    },{
+      path:'/livi',
+      element:<><Navbar/><Liivi/><Footer/></>
     }
   ])
 
