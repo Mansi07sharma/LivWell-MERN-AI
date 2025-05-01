@@ -7,12 +7,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAiN7SFhBXfbqQ4Iu5GDhEM2AJT0KuDiJM",
+  apiKey: `${proces.env.FIREBASE_API_KEY}`,
   authDomain: "livwell-a24c0.firebaseapp.com",
-  projectId: "livwell-a24c0",
+  projectId: `${proces.env.FIREBASE_PROJECT_ID}`,
   storageBucket: "livwell-a24c0.firebasestorage.app",
-  messagingSenderId: "780457783977",
-  appId: "1:780457783977:web:b134836d1f918611f66fb8"
+  messagingSenderId:  `${proces.env.FIREBASE_MESSAGING_SENDER_ID}`,
+  appId: `${proces.env.FIREBASE_APP_ID}`,
 };
 
 // Initialize Firebase
@@ -24,3 +24,5 @@ export default app
 const db = getFirestore(app);
 
 export { db };
+
+// acet@2023109
