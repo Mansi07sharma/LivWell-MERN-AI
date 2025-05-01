@@ -13,7 +13,7 @@ const center = {
 
 const LiveLocationMap = () => {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyB-ff9GF-tY3sCbvjY2iR6eMbI2JUNfvmg'  // YOUR KEY
+    googleMapsApiKey: 'process.env.GOOGLE_MAP_API'  // YOUR KEY
   });
 
   const [currentPosition, setCurrentPosition] = useState(center);
